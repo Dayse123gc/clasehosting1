@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecnología Educativa - UTMACH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background: #2a9d8f;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #264653;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      display: block;
+    }
+    nav a:hover {
+      background: #2a9d8f;
+    }
+    main {
+      padding: 20px;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    footer {
+      background: #264653;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tecnología Educativa en la Educación Superior</h1>
+  </header>
+
+  <nav>
+    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('autora')">Sobre la Autora</a>
+    <a href="#" onclick="mostrarSeccion('contemporanea')">Sociedad Contemporánea</a>
+    <a href="#" onclick="mostrarSeccion('informacion')">Sociedad de la Información</a>
+    <a href="#" onclick="mostrarSeccion('conocimiento')">Sociedad del Conocimiento</a>
+  </nav>
+
+  <main>
+    <section id="inicio" class="active">
+      <h2>¿Qué es la Tecnología Educativa?</h2>
+      <p>La tecnología educativa es el uso sistemático de recursos tecnológicos con el objetivo de mejorar los procesos de enseñanza y aprendizaje en la educación superior. Integra herramientas digitales, plataformas educativas y metodologías innovadoras que permiten una enseñanza más efectiva, personalizada y motivadora.</p>
+    </section>
+
+    <section id="autora">
+      <h2>Dayse Galarza Carrión</h2>
+      <p>Estudiante de la Universidad Técnica de Machala (UTMACH), comprometida con el uso de tecnologías digitales para transformar la educación. Su interés en la tecnología educativa nace de la convicción de que las herramientas digitales pueden potenciar el aprendizaje y hacerlo más accesible para todos.</p>
+    </section>
+
+    <section id="contemporanea">
+      <h2>Sociedad Contemporánea</h2>
+      <p>La sociedad contemporánea se caracteriza por la globalización, la digitalización y la rapidez en el acceso a la información. Estos cambios impactan directamente en la educación, exigiendo nuevos enfoques pedagógicos centrados en competencias digitales, pensamiento crítico y adaptabilidad.</p>
+    </section>
+
+    <section id="informacion">
+      <h2>Sociedad de la Información</h2>
+      <p>Vivimos en una era donde la información es un recurso clave. La sociedad de la información está basada en la creación, distribución y manipulación de información mediante tecnologías digitales. En el ámbito educativo, esto transforma el rol del docente y del estudiante, promoviendo el autoaprendizaje y el acceso abierto al conocimiento.</p>
+    </section>
+
+    <section id="conocimiento">
+      <h2>Sociedad del Conocimiento</h2>
+      <p>En esta sociedad, el conocimiento es el principal motor del desarrollo. La educación superior debe formar ciudadanos capaces de generar, aplicar y compartir conocimiento de forma crítica, ética y creativa. La tecnología educativa es una herramienta clave para alcanzar estos objetivos.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div id="fecha-hora"></div>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('section');
+      secciones.forEach(seccion => seccion.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function actualizarFechaHora() {
+      const ahora = new Date();
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const hora = ahora.toLocaleTimeString();
+      const fecha = ahora.toLocaleDateString('es-ES', opciones);
+      document.getElementById('fecha-hora').textContent = `${fecha} | ${hora}`;
+    }
+    setInterval(actualizarFechaHora, 1000);
+    actualizarFechaHora();
+  </script>
+</body>
+</html>
